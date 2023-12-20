@@ -7,10 +7,10 @@ $date = Get-Date -Format "MM-dd-yyyy"
 # Initialize an array to store the members of the groups
 $usersToReview = @()
 
-# Get Azure AD groups that contain the name "PIM"
+# Get Azure AD groups that contain the name PIM
 $groups = Get-AzureADGroup -SearchString "PIM"
 
-# For each group, get the members and create a new object with the group name, member name, user principal name, and department
+# For each group, get the members and create a new object with the group name, member name, user principal name, and objectid
 foreach ($group in $groups) {
     $members = Get-AzureADGroupMember -ObjectId $group.ObjectId
 
